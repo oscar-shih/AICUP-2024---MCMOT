@@ -1,0 +1,46 @@
+_BASE_: ../Base-bagtricks.yml
+
+INPUT:
+  SIZE_TRAIN: [256, 256]
+  SIZE_TEST: [256, 256]
+
+  REA:
+    ENABLED: True
+    PROB: 0.5
+  FLIP: 
+    ENABLED: True
+  AFFINE:
+    ENABLED: True
+  AUTOAUG:
+    ENABLED: True
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: True
+  HEADS:
+    POOL_LAYER: GeneralizedMeanPooling
+
+  LOSSES:
+    TRI:
+      HARD_MINING: False
+      MARGIN: 0.0
+
+DATASETS:
+  NAMES: ("AICUP",)
+  TESTS: ("AICUP",)
+
+SOLVER:
+  BIAS_LR_FACTOR: 1.
+
+  IMS_PER_BATCH: 256
+  MAX_EPOCH: 60
+  STEPS: [30, 50]
+  WARMUP_ITERS: 2000
+
+  CHECKPOINT_PERIOD: 1
+
+TEST:
+  EVAL_PERIOD: 60 # We didn't provide eval dataset
+  IMS_PER_BATCH: 256
+
+OUTPUT_DIR: logs/AICUP_115/bagtricks_R50-ibn-v
