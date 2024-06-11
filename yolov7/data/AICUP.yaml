@@ -1,0 +1,9 @@
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: datasets/32_33_train_v2/yolo/train
+val: datasets/32_33_train_v2/yolo/valid
+
+# number of classes
+nc: 1
+
+# class names
+names: [ 'car' ]
