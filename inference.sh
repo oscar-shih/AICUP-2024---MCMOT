@@ -1,5 +1,8 @@
 #!/bin/bash
-
+wget https://www.dropbox.com/scl/fi/bt570mp0v0r06dawx6d5r/yolov8.pt?rlkey=ma3ukx1ecvxknphntboyilwa4&st=h0hdtw1l&dl=0 -O yolov8.pt
+wget https://www.dropbox.com/scl/fi/qqlga396ugqdny10lcty6/fast_reid.pth?rlkey=iqa1bfmrr9ry7r2sqmrn8qx8s&st=epgbgojd&dl=0 -O fast_reid.pth
+mv yolov8.pt models/
+mv fast_reid.pth models/
 DEFAULT_WEIGHTS="models/yolov8.pt"
 DEFAULT_SOURCE_DIR="../datasets/32_33_AI_CUP_testdataset/AI_CUP_testdata/images"
 DEFAULT_DEVICE="0"
